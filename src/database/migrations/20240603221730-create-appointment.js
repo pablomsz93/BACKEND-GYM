@@ -33,7 +33,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull:true,
         references: {
-          model:"artists",
+          model:"monitors",
           key:"id",
         }
       },
