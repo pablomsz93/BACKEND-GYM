@@ -68,6 +68,6 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
 
-    await queryInterface.bulkDelete("monitorss", null, {});
+    await queryInterface.bulkDelete("monitors", null, {});
   },
 };

@@ -29,7 +29,7 @@ module.exports = {
           key:"id",
         }
       },
-      artist_id: {
+      monitor_id: {
         type: Sequelize.INTEGER,
         allowNull:true,
         references: {
