@@ -54,7 +54,7 @@ monitorController.getById = async (req, res) => {
   const monitorId = req.params.id;
 
   try {
-    const monitor = await Monitors.findByPk(monitorId, {
+    const monitor = await Monitor.findByPk(monitorId, {
       attributes: { exclude: ['createdAt', 'updatedAt'] }
     });
 

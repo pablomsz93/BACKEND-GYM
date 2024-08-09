@@ -1,6 +1,6 @@
 
 ## Descripción
-El departamento de producto nos ha encomendado desarrollar el backend correspondiente al sistema de gestión de citas para un estudio de tatuajes.
+El departamento de producto nos ha encomendado desarrollar el backend correspondiente al sistema de gestión de citas para un gym.
 
 ***
 ## Tecnologías Utilizadas
