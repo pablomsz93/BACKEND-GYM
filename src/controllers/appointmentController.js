@@ -1,8 +1,8 @@
 const appointmentController = {};
-const { User, Appointment, Service, Artists } = require("../models/index");
+const { User, Appointment, Service, Monitors } = require("../models/index");
 
 appointmentController.create = async (req, res) => {
-  const { appointment_date, user_id, service_id, artist_id } = req.body;
+  const { appointment_date, user_id, service_id, monitor_id } = req.body;
 
   try {
     if (!appointment_date || !user_id) {
@@ -13,12 +13,12 @@ appointmentController.create = async (req, res) => {
     }
 
     let newAppointment;
-    if (service_id && artist_id) {
+    if (service_id && monitor_id) {
       newAppointment = await Appointment.create({
         appointment_date,
         user_id,
         service_id,
-        artist_id,
+        monitor_id,
       });
     } else {
       newAppointment = await Appointment.create({
@@ -114,13 +114,13 @@ appointmentController.getById = async (req, res) => {
           attributes: ['service_name'],
         },
         {
-          model: Artists,
-          as: "artist",
+          model: Monitors,
+          as: "monitor",
           attributes: ['name'],
         },
       ],
       attributes: {
-        exclude: ["createdAt", "updatedAt", "password", "user_id", "service_id", "artist_id"],
+        exclude: ["createdAt", "updatedAt", "password", "user_id", "service_id", "monitor_id"],
       },
     });
 
@@ -155,8 +155,8 @@ appointmentController.getAllAppointments = async (req, res) => {
           attributes: ['service_name'],
         },
         {
-          model: Artists,
-          as: "artist",
+          model: Monitors,
+          as: "monitor",
           attributes: ['name'],
         },
         {
@@ -197,8 +197,8 @@ appointmentController.getUserAppointments = async (req, res) => {
           attributes: ['service_name'],
         },
         {
-          model: Artists,
-          as: "artist",
+          model: Monitors,
+          as: "monitor",
           attributes: ['name'],
         },
       ],

@@ -1,6 +1,6 @@
 const userController = {};
 const appointment = require("../models/appointment");
-const { User, Appointment, Service, Artists, Role } = require("../models/index");
+const { User, Appointment, Service, Monitors, Role } = require("../models/index");
 const bcrypt = require("bcrypt");
 
 userController.getAll = async (req, res) => {
@@ -139,8 +139,8 @@ userController.getAppointmentsByUserId = async (req, res) => {
           ],
           include: [
             {
-              model: Artists,
-              as: "artist",
+              model: Monitors,
+              as: "monitor",
               attributes: {
                 exclude: ["createdAt", "updatedAt"],
               },
@@ -154,7 +154,7 @@ userController.getAppointmentsByUserId = async (req, res) => {
               "password",
               "user_id",
               "service_id",
-              "artist_id",
+              "monitor_id",
             ],
           },
         },
@@ -206,7 +206,7 @@ userController.getUserByEmail = async (req, res) => {
               "updatedAt",
               "user_id",
               "service_id",
-              "artist_id",
+              "monitor_id",
             ],
           },
           include: [
@@ -217,8 +217,8 @@ userController.getUserByEmail = async (req, res) => {
           ],
           include: [
             {
-              model: Artists,
-              as: "artist",
+              model: Monitors,
+              as: "monitor",
               attributes: {
                 exclude: ["createdAt", "updatedAt"],
               },
@@ -266,14 +266,14 @@ userController.getUserAppointments = async (req, res) => {
           },
         },
         {
-          model: Artists,
-          as: "artist",
+          model: Monitors,
+          as: "monitor",
           attributes: {
             exclude: [
               "createdAt",
               "updatedAt",
               "service_id",
-              "artist_id",
+              "monitor_id",
               "Bio",
               "Specialty",
             ],
@@ -281,7 +281,7 @@ userController.getUserAppointments = async (req, res) => {
         },
       ],
       attributes: {
-        exclude: ["createdAt", "updatedAt", "service_id", "artist_id"],
+        exclude: ["createdAt", "updatedAt", "service_id", "monitor_id"],
       },
     });
 
