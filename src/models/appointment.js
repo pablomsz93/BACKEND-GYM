@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "service_id",
       });
       // appointment{n}---{1}artist
-      Appointment.belongsTo(models.Monitors, {
+      Appointment.belongsTo(models.Monitor, {
         as: 'monitor',
         foreignKey: "monitor_id",
       });
